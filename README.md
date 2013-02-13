@@ -4,6 +4,7 @@ web\_project\_init
 #####Usage:
     start_web_project [OPTION] [-i]
 >create a web project's file structure with sample templates.
+
 #####Options:  
 >  -i install dependencies.  
   -basic basic template for a web project with jquery.  
@@ -15,6 +16,7 @@ web\_project\_init
   -angular\_bootstrap\_underscore template for a web project with jQuery , Twitter-bootstrap , AngularJS and underscore.js.  
   -angular\_bootstrap\_placeholders basic template for a web project with jQuery , Twitter-bootstrap , AngularJS and angular-placeholders.  
   --help display this help and exit.  
+
 #####Examples:  
     start_web_project -basic -i  
     start_web_project -bootstrap_basic  
