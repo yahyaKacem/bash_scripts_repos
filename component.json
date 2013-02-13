@@ -1,0 +1,10 @@
+{
+  "name": "bash_scripts_repo",
+  "version": "0.1",
+  "dependencies": {
+    "jquery": null,
+    "showdown": null,
+    "bootstrap": null,
+    "angular": null
+  }
+}

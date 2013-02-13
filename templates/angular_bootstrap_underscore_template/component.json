@@ -1,0 +1,11 @@
+{
+  "name": "AngularJS_test",
+  "version": "0.1",
+  "dependencies": {
+    "jquery": null,
+    "angular": null,
+    "bootstrap": null,
+    "underscore": null,
+    "font-awesome": null
+  }
+}

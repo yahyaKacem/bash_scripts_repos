@@ -1,0 +1,93 @@
+#!/usr/bin/env sh
+
+if [ "`whoami`" == "root" ]
+then
+  if [ "$1" == "--help" ]
+  then
+cat<<EOF
+Usage: start_web_project [OPTION]
+create a web project's file structure with sample templates
+
+Options:
+  -i install dependencies.
+  -basic basic template for a web project with jquery.
+  -angular_basic basic template for a web project with AngularJS.
+  -bootstrap_basic basic template for a web project with jQuery and Twitter-bootstrap.
+  -angular_bootstrap_basic basic template for a web project with jQuery , Twitter-bootstrap and AngularJS.
+  -angular_bootstrap_strap template for a web project with jQuery , Twitter-bootstrap , AngularJS and angular-strap.
+  -angular_bootstrap_showdown template for a web project with jQuery , Twitter-bootstrap , AngularJS and showdown.js.
+  -angular_bootstrap_underscore template for a web project with jQuery , Twitter-bootstrap , AngularJS and underscore.js.
+  -angular_bootstrap_placeholders basic template for a web project with jQuery , Twitter-bootstrap , AngularJS and angular-placeholders.
+  --help display this help and exit.
+
+Examples:
+  start_web_project -basic -i
+  start_web_project -bootstrap_basic
+  start_web_project -bootstrap_basic -i
+  start_web_project -angular_basic
+  start_web_project -angular_basic -i
+  start_web_project -angular_bootstrap_basic
+  start_web_project -angular_bootstrap_basic -i
+  start_web_project --help
+EOF
+  exit
+  elif [ "$1" == "" ] || [ "$2" == "" ]
+  then
+    echo "dir_structure: you need to suply Two arguments"
+    echo "Try \`dir_structure --help' for more information."
+    exit
+  fi
+  if [ "$1" == "-set" ]
+  then
+    if [ -f "$2" ]
+    then
+      while read line
+      do
+        if [ "`echo $line|cut -d\# -f1`" == "d" ]
+        then
+          echo $line|cut -d\# -f2|sed '/^$/d;s/ /\//g' | xargs mkdir -p -m a=rwx
+          chmod -R 777 `echo $line|cut -d\# -f2|cut -d\  -f1`
+        elif [ "`echo $line|cut -d\# -f1`" == "f" ]
+        then
+          echo $line|cut -d\# -f2|sed '/^$/d;s/ /\//g' | xargs touch
+          chmod 777 `echo $line|cut -d\# -f2|sed '/^$/d;s/ /\//g'`
+        fi
+      done < "$2"
+      exit
+    else
+      echo "There's no file with that name. $2"
+      echo "try again with more apropriate name."
+      exit
+    fi
+  elif [ "$1" == "-get" ]
+  then
+    if [ -f "$2" ]
+    then
+      echo "sorry, there's a file already with that name. $2"
+      echo "You need to choose another name."
+      exit
+    else
+      tree -af --dirsfirst| cut -d\. -f2-|sed 's/^[\/]/f#/g'|tr '/' ' '|head -n -2|tail -n +2|\
+      while read line
+      do
+        if [ -d "`echo $line|cut -d\# -f2 |tr ' ' '/'`" ]
+        then
+          echo $line|sed 's/^[f]/d/g'
+        else
+          echo $line
+        fi
+      done > "$2"
+      chmod 777 "$2"
+      exit
+    fi
+  else
+    echo "dir_structure: invalid option -- '$1'"
+    echo "Try \`dir_structure --help' for more information."
+    exit
+  fi
+  exit
+else
+  echo "You need to be root to run this script"
+  exit
+fi
+chmod 777 * -R

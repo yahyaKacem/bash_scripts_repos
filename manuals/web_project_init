@@ -1,0 +1,79 @@
+.\" Manpage for web_project_init.
+.\" Contact fuj.tyoli@gmail.com to correct errors or typos.
+.TH man 1 "13 Feb 2013" "1.0" "web_project_init man page"
+.SH NAME:
+.B
+web_project_init
+\- create a web project's file structure with sample templates.
+.SH SYNOPSIS:
+.B
+Usage:
+web_project_init [OPTION] [-i]
+.SH DESCRIPTION:
+.B
+web_project_init
+is a command line tool for creating a web project's file structure with sample templates.
+.SH OPTIONS:
+.B
+.IP "-i:"
+install dependencies.
+.B
+.IP "-basic:"
+basic template for a web project with jquery.
+.B
+.IP "-angular_basic:"
+basic template for a web project with AngularJS.
+.B
+.IP "-bootstrap_basic:"
+basic template for a web project with jQuery and Twitter-bootstrap.
+.B
+.IP "-angular_bootstrap_basic:"
+basic template for a web project with jQuery , Twitter-bootstrap and AngularJS.
+.B
+.IP "-angular_bootstrap_strap:"
+template for a web project with jQuery , Twitter-bootstrap , AngularJS and angular-strap.
+.B
+.IP "-angular_bootstrap_showdown:"
+template for a web project with jQuery , Twitter-bootstrap , AngularJS and showdown.js.
+.B
+.IP "-angular_bootstrap_underscore:"
+template for a web project with jQuery , Twitter-bootstrap , AngularJS and underscore.js.
+.B
+.IP "-angular_bootstrap_placeholders:"
+basic template for a web project with jQuery , Twitter-bootstrap , AngularJS and angular-placeholders.
+.B
+.IP "--help:"
+display this help and exit.
+.SH FILES:
+.IP "Template files used to generate web projects in the folowing directories:"
+/var/www/Models/basic_template/
+.br
+/var/www/Models/angular_basic_template/
+.br
+/var/www/Models/bootstrap_basic_template/
+.br
+/var/www/Models/angular_bootstrap_basic_template/
+.br
+/var/www/Models/angular_bootstrap_strap_template/
+.br
+/var/www/Models/angular_bootstrap_showdown_template/
+.br
+/var/www/Models/angular_bootstrap_underscore_template/
+.br
+/var/www/Models/angular_bootstrap_placeholders_template/
+.SH SEE ALSO:
+dir_structure, bulk_convert_images.sh, bulk_crop_images.sh, convert.sh,
+.TP
+download_videos_with_aria2c, get_video_page_links, remove_spaces.sh,
+.TP
+git_remove_deleted_files, grub_videos_from_egghead, links_preparation,
+.TP
+optimize_css_custom, rename_trim_convert_mp3.sh, start_a_git_repo, video_2_video_converter
+.SH BUGS:
+No known bugs.
+.SH GitHub Repository for the project:
+
+.SH AUTHOR:
+Yahya Kacem (http://about.me/yahya_kacem).
+.br
+GitHub (https://github.com/yahyaKacem/).
